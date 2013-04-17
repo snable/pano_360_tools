@@ -2,17 +2,18 @@
 
 FILENAME = "myPreset.xml"
 
-SCHEMA = '<?xml version="1.0" encoding="utf-8"?>\n'
-YAW_ANGLE = 360
-
 ROWS = [1, 8, 15, 15, 15]
 PITCH = [90, 70, 35, 0, -40]
+
 PRESET_NAME = r"My D3100 preset"
 TOOLTIP = '''18 мм на APS-C (x1.6)
 			Нодальная точка - 23мм(1 мм перед кольцом) от поверхности объектива (22мм при 25мм)
 			Всего кадров: {0}:
 				{1}
 			После съемки желательно снять надир (пол)'''
+
+SCHEMA = '<?xml version="1.0" encoding="utf-8"?>\n'
+YAW_ANGLE = 360
 PICT_TAG = '<pict yaw="{0}" pitch="{1}" />'
 DOC_TEMPLATE = '''{_schema}
 <papywizard>
