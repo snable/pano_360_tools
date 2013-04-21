@@ -2,8 +2,8 @@
 
 FILENAME = "myPreset.xml"
 
-ROWS = [1, 8, 15, 15, 15]
-PITCH = [90, 70, 35, 0, -40]
+ROWS = [8, 15, 15, 15]
+PITCH = [70, 35, 0, -40]
 
 PRESET_NAME = r"My D3100 preset"
 TOOLTIP = '''18 мм на APS-C (x1.6)
@@ -40,7 +40,7 @@ for i in xrange(num_rows):
     yaw_delta = yaw_delta % 360 # angle must be less than 360 degrees
 
     shoot_range = xrange(num_shoots)
-    if i % 2 == 0: shoot_range = reversed(shoot_range)
+    if i % 2 == 1: shoot_range = reversed(shoot_range)
     shoots.append('%s<!-- ROW %d -->' % ( ('' if i == 0 else '\n\t\t\t'), (i + 1) ))
 
     for shoot in shoot_range:
