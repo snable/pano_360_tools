@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-FILENAME = "myPreset.xml"
+FILENAME = "preset.xml"
 
 ROWS = [8, 15, 15, 15]
 PITCH = [70, 35, 0, -40]
