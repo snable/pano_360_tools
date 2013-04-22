@@ -1,3 +1,5 @@
-# Утилитки для панорам
+# Pano utils
 
-Здесь почти ничего нет.
+Here are just some tools for panoramas.
+
+Maybe you can find something usefull here.
