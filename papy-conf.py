@@ -6,11 +6,11 @@ ROWS = [8, 15, 15, 15]
 PITCH = [70, 35, 0, -40]
 
 PRESET_NAME = r"My D3100 preset"
-TOOLTIP = '''18 мм на APS-C (x1.6)
-			Нодальная точка - 23мм(1 мм перед кольцом) от поверхности объектива (22мм при 25мм)
-			Всего кадров: {0}:
+TOOLTIP = '''18mm on APS-C (x1.6)
+			No parallax point - 23mm(1 mm before silver ring) from lens surface
+			Total shoots: {0}:
 				{1}
-			После съемки желательно снять надир (пол)'''
+			After shooting its goot idea to shoot a floor'''
 
 SCHEMA = '<?xml version="1.0" encoding="utf-8"?>\n'
 YAW_ANGLE = 360
@@ -47,13 +47,13 @@ for i in xrange(num_rows):
         shoots.append(PICT_TAG.format(yaw_delta * (shoot), PITCH[i]))
 
     if num_shoots == 1:
-        shoot_plural = "снимок"
+        shoot_plural = "shoot"
     elif num_shoots in [2, 3, 4]:
-        shoot_plural = "снимка"
+        shoot_plural = "shoots"
     else:
-        shoot_plural = "снимков"
+        shoot_plural = "shoots"
 
-    shoot_info_string = "{0} {1} на {2} градусов c шагом {3}".format(
+    shoot_info_string = "{0} {1} at {2} degrees with step {3}".format(
         num_shoots, shoot_plural, PITCH[i], yaw_delta)
     shoots_info.append(shoot_info_string)
 
