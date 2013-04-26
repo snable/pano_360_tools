@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-#import os
 from math import degrees, atan, ceil
 
 
@@ -50,7 +49,7 @@ class Head():
 
 
 class Lens():
-    def __init__(self, focal=18, hSize=36., vSize=24., crop=1.516, portrait=True):
+    def __init__(self, focal=18, hSize=23.6, vSize=15.8, crop=None, portrait=True):
         if portrait:
             hSize, vSize = vSize, hSize
         if crop is not None:
@@ -80,7 +79,6 @@ class Preset():
 
     def Build(self):
         shoots = []
-        self.totalShoots = 0
 
         vFOV = FOV(self.lens.vFOV, self.vOverlap)
         hFOV = FOV(self.lens.hFOV, self.hOverlap)
@@ -93,7 +91,6 @@ class Preset():
             pitch = (-v) * vFOV.real(anglesRange) - vFOV.offset() + self.vMax
             hShoots = xrange(hFOV.numShoots(360., 0))
             for h in hShoots if v % 2 == 0 else reversed(hShoots):
-                self.totalShoots += 1
                 shoots.append(Shoot(h * hFOV.real(anglesRange), pitch))
 
         self.shoots = shoots
@@ -113,9 +110,9 @@ class Preset():
             focal=self.lens.focal,
             hSize=self.lens.hSize,
             vSize=self.lens.vSize,
-            totalShoots=self.totalShoots)
+            totalShoots=len(self.shoots))
         shoot = ET.SubElement(preset, "shoot")
-        for s in xrange(self.totalShoots):
+        for s in xrange(len(self.shoots)):
             pict = ET.SubElement(shoot, "pict")
             pict.set("yaw", "%3.2f" % self.shoots[s].yaw)
             pict.set("pitch", "%3.2f" % self.shoots[s].pitch)
@@ -125,7 +122,7 @@ class Preset():
 
 
 def main():
-    preset = Preset(Head(70, -60), Lens(24))
+    preset = Preset(Head(70, -40), Lens(18))
     preset.Build()
     preset.WriteToXML("my_preset.xml")
 
